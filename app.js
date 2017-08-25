@@ -1,45 +1,34 @@
 App({
     onLaunch: function () {
-        var logs = wx.getStorageSync('logs')||[];
-        logs.unshift(Date.now());
-        wx.setStorageSync("logs",logs);
-        wx.login({
-            success: function(res){
-                if(res.authSetting['scope.usuerInfo']){
-                    wx.getUserInfo({
-                        success: function(res){
-                            this.globalData.userInfo = res.userInfo;
-                            if(this.userInfoReadyCallback){
-                                this.userInfoReadyCallback(res)
+      
+    },
+    getUserInfo:function(cb){
+          var that = this;
+          if(this.globalData.userInfo){
+              typeof cb =="function"&&cb(this.globalData.userInfo)
+          }else{
+              wx.login({
+                  success:function(){
+                      wx.getUserInfo({
+                            success:function(res){
+                                that.globalData.userInfo = res.userInfo;
+                                typeof cb == "function"&&cb (that.globalData.userInfo);
                             }
-                        },
-                        fail: function() {
-                            // fail
-                        },
-                        complete: function() {
-                            // complete
-                        }
-                    })
-                }
-            },
-            fail: function() {
-                // fail
-            },
-            complete: function() {
-                // complete
-            }
-        })
+                      })
+                  }
+              })
+          }
     },
     globalData:{
         userInfo:null
     },
     onShow: function () {
-        String2
+        
     },
     onHide: function () {
-        String3
+        
     },
     onError: function (msg) {
-        String4
+        
     }
 })

@@ -1,9 +1,9 @@
 .userinfo{
     display:flex;
     flex-direction:column;
-    align-item:center
+    align-items:center;
 }
-.userinfo-avatar:{
+.userinfo-avatar{
     width:128rpx;
     height:128rpx;
     margin:20rpx;
@@ -13,5 +13,5 @@
     color:#aaa;
 }
 .usermotto{
-    margin-top:200px;
+    margin-top:160px;
 }

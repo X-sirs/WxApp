@@ -1,12 +1,11 @@
 <view class="container">
     <view class="userinfo">
-        <block wx:if="{{hasUserInfo}}">
-            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" backgroung-size="cover"></image>
+        <block>
+            <image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" backgroung-size="cover"/>
             <text class="userinfo-nickname">{{userInfo.nickName}}</text>
         </block>
-        <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取头像昵称</button>
         <view class="usermotto">
-            <text class="user-motto">{{motto}}</text>
+            <button class="user-motto" bindtap="bindViewTap">{{motto}}</button>
         </view>  
     </view>
 </view>

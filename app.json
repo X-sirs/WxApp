@@ -1,12 +1,17 @@
 {
-    "pages":[
-        "pages/index/index",
-        "pages/logs/logs"
-    ],
-    "window":{
-        "backgroundTextStyle":"light",
-        "navigationBarBackgroundColor":"#28f682",
-        "navigationBarTitleText":"WeCahat",
-        "navigationBarTextStyle":"lightblue"
-    }
+  "pages": [
+    "pages/index/index",
+    "pages/welcome/welcome"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#28f682",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "lightblue"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
 }

@@ -1,13 +1,13 @@
 const app = getApp();
 Page({
     data:{
-        motto:"code motto",
+        motto:"motto welcome",
         userInfo:{},
         hasUserInfo:false
     },
     bindViewTap:function(){
         wx.navigateTo({
-            url: '../logs/logs',
+            url: '../welcome/welcome',
             success: function(res){
                 // success
             },
@@ -20,26 +20,20 @@ Page({
         })
     },
     onLoad:function(options){
+      const that = this;
         // 生命周期函数--监听页面加载
         if(app.globalData.userInfo){
-            this.setData({
+            that.setData({
                 userInfo:app.globalData.userInfo,
                 hasUserInfo:true
             })
         }else{
-            app.userInfoReadyCallback = function(res){
-                this.setData({
-                    userInfo:res.userInfo,
-                    hasUserInfo:true
-                })
-            }
+            app.getUserInfo(function(res){
+              that.setData({
+                userInfo: res
+              })
+            })
         }
-    },
-    getUserInfo:function(e){
-        this.setData({
-            userInfo:e.detail.userInfo,
-            hasUserInfo:true
-        })
     },
     onReady:function(){
         // 生命周期函数--监听页面初次渲染完成
@@ -47,7 +41,6 @@ Page({
     },
     onShow:function(){
         // 生命周期函数--监听页面显示
-        
     },
     onHide:function(){
         // 生命周期函数--监听页面隐藏
